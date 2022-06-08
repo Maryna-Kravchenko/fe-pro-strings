@@ -80,19 +80,19 @@ export const quantityOfSymbols = (string, symbol) => {
  * @param {string} symbol
  * @returns {number}
  */
-let countSymbol = 0;
+let countSymbolNew = 0;
 export const quantityOfSymbolsWithIndexOf = (string, symbol) => {
   let elementNumber = 0;
   while (true) {
     if(string.toLowerCase().indexOf(symbol, elementNumber) === -1) {
       break;
     } else if(string.toLowerCase().indexOf(symbol, elementNumber) >= 0) {
-      countSymbol += 1;
+      countSymbolNew += 1;
       elementNumber = string.toLowerCase().indexOf(symbol, elementNumber) + 1;
       continue;
     } else {
-      countSymbol += 0;
+      countSymbolNew += 0;
     };
   };
-  return countSymbol;
+  return countSymbolNew;
 };
