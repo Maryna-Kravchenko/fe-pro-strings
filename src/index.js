@@ -8,9 +8,9 @@ export const replaceZAndVFromString = (string) => {
   let newString = '';
   for (let stringElement of string) {
     if(stringElement.toLowerCase() === 'v' || stringElement.toLowerCase() === 'z'){
-      newString += '*';
+      newString = `${newString}*`;
     } else {
-      newString += stringElement;
+      newString = `${newString}${stringElement}`;
     }
   }
   return newString;
@@ -28,7 +28,7 @@ export const replaceZAndVFromString = (string) => {
  */
 export const changeWord = (string, word, newWord) => {
   if(string.includes(word)){
-    return(`${string.slice(0, string.indexOf(word))}${newWord}${string.slice(string.indexOf(word) + word.length)}`);
+    return `${string.slice(0, string.indexOf(word))}${newWord}${string.slice(string.indexOf(word) + word.length)}`;
   } else {
     return string;
   }
@@ -58,7 +58,7 @@ export const truncate = (string, length) => {
 export const quantityOfSymbols = (string, symbol) => {
   let countSymbol = 0;
   for (let i = 0; i < string.length; i++) {
-    if(string[i].toLowerCase() === symbol) {
+    if(string[i].toLowerCase() === symbol.toLowerCase()) {
       countSymbol++;
     }
   }
@@ -84,11 +84,11 @@ export const quantityOfSymbolsWithIndexOf = (string, symbol) => {
   let countSymbol = 0;
   let elementNumber = 0;
   while (true) {
-    if(string.toLowerCase().indexOf(symbol, elementNumber) === -1) {
+    if(string.toLowerCase().indexOf(symbol.toLowerCase(), elementNumber) === -1) {
       break;
-    } else if(string.toLowerCase().indexOf(symbol, elementNumber) >= 0) {
+    } else if(string.toLowerCase().indexOf(symbol.toLowerCase(), elementNumber) >= 0) {
       countSymbol += 1;
-      elementNumber = string.toLowerCase().indexOf(symbol, elementNumber) + 1;
+      elementNumber = string.toLowerCase().indexOf(symbol.toLowerCase(), elementNumber) + 1;
     } else {
       countSymbol += 0;
     }
